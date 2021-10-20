@@ -1,0 +1,61 @@
+body {
+    background-color: #439943;
+    color: #282828;
+}
+
+
+footer {
+    font-style: italic;
+}
+
+#nameTitle {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#nav-menu {
+    background-color: rgba(17, 140, 3, 0.8);
+    text-transform: uppercase;
+}
+
+.profilepic {
+    width: 30%;
+    border-radius: 50%;
+}
+
+#content {
+    min-height: 80vh;
+}
+
+#content h1, #content h2, #content h3 {
+    font-weight: bold;
+}
+#content h4 {
+    font-style: italic;
+}
+
+#content p {
+    font-size: 22px;
+    text-align: justify;
+}
+
+#content ul {
+    font-size: 22px;
+}
+
+.block {
+    padding-top: 32px;
+}
+
+.contactInfo a {
+    text-decoration: none;
+    color: #25303d;
+}
+
+.contactInfo a:hover {
+    color: #17319a;
+}
+
+
+
+
+
