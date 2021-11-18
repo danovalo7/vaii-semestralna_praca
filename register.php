@@ -6,32 +6,33 @@ $cpage = "register";
 include "navbar.php";
 ?>
 
-    <form method="post">
-        <label for="user_name">username:</label><input type="text" name="user_name" id="user_name"><br>
-        <label for="user_pass">password:</label>
-        <input type="text" name="user_pass" id="user_pass"><br>
+    <form name="form_register" method="post" onsubmit="return validateForm()">
         <label for="user_email">email:</label>
         <input type="text" name="user_email" id="user_email"><br>
+        <label for="user_name">username:</label>
+        <input type="text" name="user_name" id="user_name"><br>
+        <label for="user_pass">password:</label>
+        <input type="text" name="user_pass" id="user_pass"><br>
         <input type="submit" name="register" value="Register">
     </form>
 
     <script>
         function validateForm() {
-            let x = document.forms["registration_form"]["username"].value;
-            if (x == "") {
-                alert("Username must be filled out");
+            let x = document.forms["form_register"]["user_name"].value;
+            if (x === "") {
+                alert("Missing username.");
                 return false;
             }
 
-            x = document.forms["registration_form"]["password"].value;
-            if (x == "") {
-                alert("Password must be filled out");
+            x = document.forms["form_register"]["user_pass"].value;
+            if (x === "") {
+                alert("Missing password.");
                 return false;
             }
 
-            x = document.forms["registration_form"]["email"].value;
-            if (x == "") {
-                alert("Email must be filled out");
+            x = document.forms["form_register"]["user_email"].value;
+            if (x === "") {
+                alert("Missing email.");
                 return false;
             }
         }

@@ -29,6 +29,28 @@ class DBConn
         return $result;
     }
 
+    public function  UserLogin($username, $password){
+        $sql = "SELECT user_id, user_name, user_pass FROM users WHERE username = ?";
+
+        if($stmt = $this->db->prepare($sql)) {
+            $stmt->bind_param("s", $param_username);
+            $param_username = $username;
+            if ($stmt->execute()) {
+                $stmt->store_result();
+                if ($stmt->num_rows() == 1) {
+                    $stmt->bind_result($id, $username, $hashed_password);
+                    if ($stmt->fetch()) {
+                        if (password_verify($password, $hashed_password)) {
+                            $stmt->close();
+                            return $id;
+                        }
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
     public function UserRegister(User $user){
 
         $name = $user->getUserName();

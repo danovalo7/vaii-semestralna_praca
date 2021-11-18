@@ -24,6 +24,14 @@
                 <li class="nav-item">
                     <a class="nav-link<?php if ($cpage == "register") {echo " active";} ?>" href="register.php">Register</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link<?php if ($cpage == "login") {echo " active";} ?>" href="login.php">Login</a>
+                </li>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="logout.php">';
+                    echo $_SESSION['user_name'];
+                    echo '</a></li>'; } ?>
             </ul>
         </div>
     </div>
