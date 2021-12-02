@@ -2,19 +2,19 @@
 
 class User
 {
-    private $user_name;
-    private $user_pass;
-    private $user_email;
+    private string $user_name;
+    private string $user_pass;
+    private string $user_email;
 
     public function __construct($user_name, $user_pass, $user_email)
     {
-        $this->user_name=$user_name;
-        $this->user_pass=$user_pass;
-        $this->user_email=$user_email;
+        $this->user_name = $user_name;
+        $this->user_pass = $user_pass;
+        $this->user_email = $user_email;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUserName()
     {
@@ -30,7 +30,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUserPass()
     {
@@ -46,7 +46,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUserEmail()
     {
@@ -59,6 +59,23 @@ class User
     public function setUserEmail($user_email): void
     {
         $this->user_email = $user_email;
+    }
+
+    public function validateUser(): bool
+    {
+        if (!isset($this->user_name) || $this->user_name == "") {
+            return false;
+        }
+        if (!isset($this->user_pass) || $this->user_pass == "" || strlen($this->user_pass) < 6) {
+            return false;
+        }
+        if (!isset($this->user_email) || $this->user_email == "") {
+            return false;
+        }
+        if (!preg_match("/^\S+@\S+\.\S+$/", $this->user_email)) {
+            return false;
+        }
+        return true;
     }
 
 }

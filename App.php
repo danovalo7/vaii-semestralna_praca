@@ -5,7 +5,7 @@ require "DBConn.php";
 
 class App
 {
-    private $storage;
+    private DBConn $storage;
 
     public function __construct()
     {
@@ -31,7 +31,30 @@ class App
             } else {
                 echo "Incorrect credentials.";
             }
-            echo "lol";
+        }
+        if (isset($_POST['change_password'])) {
+            $success = $this->storage->UserChangePassword($_POST['user_old_pass'], $_POST['user_pass'], $_POST['user_pass_again']);
+            if ($success){
+                session_start();
+                $_SESSION["logged_in"] = false;
+                $_SESSION["user_id"] = null;
+                $_SESSION["user_name"] = null;
+                header("location: index.php");
+            } else {
+                echo "Incorrect credentials.";
+            }
+        }
+        if (isset($_POST['delete_account'])) {
+            $success = $this->storage->UserDeleteAccount($_POST['user_pass']);
+            if ($success){
+                session_start();
+                $_SESSION["logged_in"] = false;
+                $_SESSION["user_id"] = null;
+                $_SESSION["user_name"] = null;
+                header("location: index.php");
+            } else {
+                echo "Incorrect credentials.";
+            }
         }
     }
 }
