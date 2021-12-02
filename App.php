@@ -21,7 +21,7 @@ class App
 
         }
         if (isset($_POST['login'])) {
-            $id = $this->storage->UserLogin($_POST['user_name'], $_POST['user_pass']);
+            $id = $this->storage->UserLogin(new User($_POST['user_name'], $_POST['user_pass']));
             if ($id != 0){
                 session_start();
                 $_SESSION["logged_in"] = true;

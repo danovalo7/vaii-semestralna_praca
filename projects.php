@@ -1,7 +1,6 @@
 <?php
-include "header.php";
 $cpage = "index";
-include "navbar.php";
+include "header.php";
 ?>
     <div class="container mt-2">
         <div id="content">

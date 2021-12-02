@@ -1,9 +1,8 @@
 <?php
 require "App.php";
 $app = new App();
-include "header.php";
 $cpage = "register";
-include "navbar.php";
+include "header.php";
 ?>
 
     <form name="form_register" method="post">

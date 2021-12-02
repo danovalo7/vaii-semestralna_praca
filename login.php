@@ -3,7 +3,6 @@ require "App.php";
 $app = new App();
 include "header.php";
 $cpage = "login";
-include "navbar.php";
 ?>
 
 
