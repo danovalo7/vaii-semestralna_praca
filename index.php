@@ -1,6 +1,7 @@
 <?php
-include "header.php";
 $cpage = "index";
+include "header.php";
+
 ?>
 <div class="container mt-2">
     <div id="content">

@@ -1,8 +1,8 @@
 <?php
 require "App.php";
 $app = new App();
-include "header.php";
 $cpage = "delete_account";
+include "header.php";
 if (!$_SESSION['logged_in']) {exit("You are not logged in.");}
 ?>
 
